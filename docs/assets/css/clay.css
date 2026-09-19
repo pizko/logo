@@ -413,3 +413,7 @@ details[open] summary::after{rotate:45deg}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
 }
+
+/* портреты 3:4 в квадратной рамке: держим верх кадра, чтобы не резало голову */
+.specialist-photo[src*="sidorova"],.specialist-photo[src*="mishenina"],
+.dialog-photo[src*="sidorova"],.dialog-photo[src*="mishenina"]{object-position:50% 12%}

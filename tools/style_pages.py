@@ -4,7 +4,7 @@ import pathlib
 SRC = pathlib.Path(__file__).resolve().parent.parent / "src"
 TAG = ('<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />'
        '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" />'
-       '<link rel="stylesheet" href="assets/css/clay-pages.css?v=1" />')
+       '<link rel="stylesheet" href="assets/css/clay-pages.css?v=2" />')
 n = 0
 for f in sorted(SRC.glob("*.html")):
     if f.name == "index.html":

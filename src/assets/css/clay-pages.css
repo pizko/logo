@@ -80,3 +80,6 @@ body footer{padding:30px 16px 40px;color:var(--muted);font-size:14px}
   body .paper,body article.article{border-radius:34px}
 }
 @media(prefers-reduced-motion:reduce){body *{transition-duration:.01ms!important}}
+
+/* портреты 3:4: не резать голову */
+body img[src*="sidorova"],body img[src*="mishenina"]{object-position:50% 12%}
