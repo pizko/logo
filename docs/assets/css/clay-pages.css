@@ -1,0 +1,82 @@
+/* Внутренние страницы — тот же пластилин, что на главной.
+   Подключается последним: перекрывает content-pages.css и встроенные стили страниц новостей. */
+:root{
+  --bg:#FFF8F3;--ink:#28252F;--muted:#68636F;--violet:#3B3154;--violet-edge:#241c36;
+  --lav:#D9CCFF;--lav-edge:#b9a8f0;--mint:#CDEEDC;--mint-edge:#a6d9bf;--peach:#FFD8C2;--peach-edge:#f1b596;
+  --yellow:#F6E7A8;--yellow-edge:#e2cd7c;--sky:#CFE5FF;--sky-edge:#a8caf2;--white-edge:#e9e1f4;
+  --clay-lg:0 18px 35px rgba(60,45,90,.14),inset 0 3px 4px rgba(255,255,255,.65),inset 0 -5px 8px rgba(80,60,110,.10);
+  --clay-md:0 12px 24px rgba(60,45,90,.12),inset 0 2px 3px rgba(255,255,255,.65),inset 0 -4px 6px rgba(80,60,110,.09);
+  --font:"Onest",system-ui,-apple-system,"Segoe UI",sans-serif;--ease:cubic-bezier(.3,.7,.25,1.05)
+}
+html body{background:var(--bg);color:var(--ink);font:400 16px/1.65 var(--font);-webkit-font-smoothing:antialiased}
+body h1,body h2,body h3{font-family:var(--font);font-weight:700;letter-spacing:-.02em;color:var(--ink)}
+body .container{width:min(1000px,calc(100% - 32px))}
+
+/* шапка — плавающая пластина */
+body header{position:sticky;top:0;z-index:20;background:transparent;border:0;backdrop-filter:none;-webkit-backdrop-filter:none;padding:12px 0 0}
+body header .top{min-height:64px;background:#fff;border-radius:28px;padding:0 10px 0 16px;
+  box-shadow:0 6px 0 var(--white-edge),0 16px 30px rgba(60,45,90,.12),inset 0 2px 3px #fff}
+body .brand{font-weight:700;font-size:18px;color:var(--ink)}
+body .logo{width:36px;height:36px;border-radius:13px;background:#F6C95C;color:#fff;font-weight:700;
+  box-shadow:0 4px 0 #d9a93c,inset 0 2px 3px rgba(255,255,255,.6)}
+body header nav a,body .nav a{font-weight:500;font-size:14px;padding:8px 10px;border-radius:14px;color:var(--ink);text-decoration:none}
+body header nav a:hover,body .nav a:hover{background:var(--lav);text-decoration:none}
+
+/* кнопки с толщиной */
+body .btn{border:0;border-radius:24px;min-height:48px;padding:0 22px;background:var(--violet);color:#fff;font:600 15px/1.2 var(--font);
+  box-shadow:0 7px 0 var(--violet-edge),0 12px 22px rgba(59,49,84,.26),inset 0 2px 3px rgba(255,255,255,.28);
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+body .btn:hover{transform:translateY(-2px) scale(1.01);box-shadow:0 9px 0 var(--violet-edge),0 16px 26px rgba(59,49,84,.3)}
+body .btn:active{transform:translateY(4px);box-shadow:0 3px 0 var(--violet-edge),0 5px 10px rgba(59,49,84,.24)}
+
+body main{padding:34px 0 80px}
+body .crumbs{display:inline-flex;flex-wrap:wrap;gap:4px;padding:8px 14px;border-radius:16px;background:#fff;font-size:13px;color:var(--muted);
+  box-shadow:0 4px 0 var(--white-edge),var(--clay-md);margin-bottom:26px}
+
+/* первый экран страницы — лавандовая плита */
+body main>.hero,body section.hero{position:relative;background:var(--lav);border-radius:48px;padding:clamp(24px,4vw,44px);margin-bottom:40px;
+  box-shadow:0 12px 0 #c3b3f3,0 30px 50px rgba(60,45,90,.16),inset 0 4px 6px rgba(255,255,255,.7),inset 0 -6px 10px rgba(80,60,110,.1)}
+body .eyebrow{display:inline-block;padding:7px 14px;border-radius:999px;background:#fff;color:var(--violet);font-weight:600;font-size:13px;letter-spacing:.02em;text-transform:none;
+  box-shadow:var(--clay-md)}
+body h1{font-size:clamp(32px,4.8vw,54px);line-height:1.06;letter-spacing:-.035em}
+body .lead{color:#4e4760}
+body .hero img,body .hero .hero-image,body .hero .event-photo,body .hero .archive-photo{border-radius:44% 56% 50% 50% / 50% 44% 56% 50%;background:#fff;padding:10px;
+  box-shadow:0 10px 0 #c3b3f3,0 24px 40px rgba(60,45,90,.18)}
+body .news-photo-frame::before{display:none}
+
+/* основной текст — белая пластина */
+body .paper,body article.article{background:#fff;border-radius:44px 34px 42px 38px;padding:clamp(24px,4.4vw,48px);
+  box-shadow:0 10px 0 var(--white-edge),var(--clay-lg)}
+body .paper h2,body .article h2{font-size:clamp(22px,2.6vw,28px);margin-top:34px}
+body .paper ul,body .article ul,body .paper ol,body .article ol{padding-left:22px}
+body .paper li,body .article li{margin:6px 0}
+
+/* карточки: разные пастельные куски */
+body .grid{gap:22px}
+body .card{border-radius:34px;padding:24px;background:var(--mint);box-shadow:0 8px 0 var(--mint-edge),var(--clay-md)}
+body .card:nth-child(even){background:var(--peach);box-shadow:0 8px 0 var(--peach-edge),var(--clay-md);border-radius:28px 40px 32px 38px}
+body .card:nth-child(3n){background:var(--sky);box-shadow:0 8px 0 var(--sky-edge),var(--clay-md)}
+body .card .eyebrow{margin-bottom:8px}
+
+/* документы */
+body .credentials a,body .document-carousel a{border-radius:26px;background:var(--mint);box-shadow:0 7px 0 var(--mint-edge),var(--clay-md);transition:transform .25s var(--ease)}
+body .credentials a:nth-child(even),body .document-carousel a:nth-child(even){background:var(--peach);box-shadow:0 7px 0 var(--peach-edge),var(--clay-md)}
+body .credentials a:hover,body .document-carousel a:hover{transform:translateY(-3px)}
+body .credentials img,body .document-carousel img{border-radius:20px 20px 0 0}
+body .document-carousel{padding:6px 4px 22px}
+body .document-carousel::after{background:var(--violet);border-radius:12px}
+
+/* призыв записаться */
+body .cta{background:var(--violet);color:#fff;border-radius:40px;padding:28px 30px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;
+  box-shadow:0 10px 0 var(--violet-edge),0 24px 40px rgba(59,49,84,.24),inset 0 3px 4px rgba(255,255,255,.18)}
+body .cta h2{color:#fff;margin:0 0 6px}
+body .cta p{opacity:.88;margin:0}
+body .cta .btn{background:#fff;color:var(--ink);box-shadow:0 7px 0 var(--white-edge),0 12px 22px rgba(20,10,40,.25)}
+
+body footer{padding:30px 16px 40px;color:var(--muted);font-size:14px}
+@media(max-width:720px){
+  body header nav,body .nav{display:none}
+  body main>.hero,body section.hero{border-radius:36px}
+  body .paper,body article.article{border-radius:34px}
+}
+@media(prefers-reduced-motion:reduce){body *{transition-duration:.01ms!important}}

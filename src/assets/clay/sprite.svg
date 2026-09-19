@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="clay-sprite" aria-hidden="true" focusable="false" width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden">
+  <defs>
+    <!-- Один фильтр на все объекты: мягкая тень вниз, светлая кромка сверху-слева,
+         тёмная кромка снизу-справа и матовое зерно — «пластилин». -->
+    <filter id="clay" x="-35%" y="-30%" width="170%" height="175%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3.2" result="blur"/>
+      <feOffset in="blur" dx="3.5" dy="4.5" result="blurDown"/>
+      <feComposite in="SourceAlpha" in2="blurDown" operator="arithmetic" k2="1" k3="-1" result="rimTop"/>
+      <feFlood flood-color="#ffffff" flood-opacity=".78"/>
+      <feComposite in2="rimTop" operator="in" result="light"/>
+      <feOffset in="blur" dx="-4" dy="-6" result="blurUp"/>
+      <feComposite in="SourceAlpha" in2="blurUp" operator="arithmetic" k2="1" k3="-1" result="rimBottom"/>
+      <feFlood flood-color="#2b1f47" flood-opacity=".26"/>
+      <feComposite in2="rimBottom" operator="in" result="shade"/>
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6" result="dropBlur"/>
+      <feOffset in="dropBlur" dx="0" dy="9" result="dropOff"/>
+      <feFlood flood-color="#3c2d5a" flood-opacity=".2"/>
+      <feComposite in2="dropOff" operator="in" result="drop"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="7" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 .2  0 0 0 0 .15  0 0 0 0 .3  0 0 0 .09 0" result="grain"/>
+      <feComposite in="grain" in2="SourceAlpha" operator="in" result="grainIn"/>
+      <feMerge>
+        <feMergeNode in="drop"/>
+        <feMergeNode in="SourceGraphic"/>
+        <feMergeNode in="shade"/>
+        <feMergeNode in="light"/>
+        <feMergeNode in="grainIn"/>
+      </feMerge>
+    </filter>
+    <!-- тот же пластилин без внешней тени — для деталей поверх основной формы -->
+    <filter id="clay-flat" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1.6" result="blur"/>
+      <feOffset in="blur" dx="1.6" dy="2" result="d"/>
+      <feComposite in="SourceAlpha" in2="d" operator="arithmetic" k2="1" k3="-1" result="rt"/>
+      <feFlood flood-color="#fff" flood-opacity=".7"/>
+      <feComposite in2="rt" operator="in" result="l"/>
+      <feOffset in="blur" dx="-2" dy="-2.4" result="u"/>
+      <feComposite in="SourceAlpha" in2="u" operator="arithmetic" k2="1" k3="-1" result="rb"/>
+      <feFlood flood-color="#2b1f47" flood-opacity=".22"/>
+      <feComposite in2="rb" operator="in" result="s"/>
+      <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="s"/><feMergeNode in="l"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- буквы и цифры: толстая обводка того же цвета скругляет углы, как у слепленных вручную -->
+  <symbol id="c-a" viewBox="0 0 120 120"><g filter="url(#clay)"><text x="60" y="94" text-anchor="middle" font-family="Nunito, Onest, sans-serif" font-weight="900" font-size="96" fill="#8C7BE8" stroke="#8C7BE8" stroke-width="9" stroke-linejoin="round" paint-order="stroke">А</text></g></symbol>
+  <symbol id="c-b" viewBox="0 0 120 120"><g filter="url(#clay)"><text x="60" y="94" text-anchor="middle" font-family="Nunito, Onest, sans-serif" font-weight="900" font-size="96" fill="#F4A07E" stroke="#F4A07E" stroke-width="9" stroke-linejoin="round" paint-order="stroke">Б</text></g></symbol>
+  <symbol id="c-r" viewBox="0 0 120 120"><g filter="url(#clay)"><text x="60" y="94" text-anchor="middle" font-family="Nunito, Onest, sans-serif" font-weight="900" font-size="96" fill="#6FC6A0" stroke="#6FC6A0" stroke-width="9" stroke-linejoin="round" paint-order="stroke">Р</text></g></symbol>
+  <symbol id="c-ya" viewBox="0 0 120 120"><g filter="url(#clay)"><text x="60" y="94" text-anchor="middle" font-family="Nunito, Onest, sans-serif" font-weight="900" font-size="96" fill="#7FB3F0" stroke="#7FB3F0" stroke-width="9" stroke-linejoin="round" paint-order="stroke">Я</text></g></symbol>
+  <symbol id="c-123" viewBox="0 0 200 120"><g filter="url(#clay)" font-family="Nunito, Onest, sans-serif" font-weight="900" font-size="88" stroke-width="8" stroke-linejoin="round" paint-order="stroke" text-anchor="middle">
+    <text x="42" y="92" fill="#F4A07E" stroke="#F4A07E" transform="rotate(-8 42 60)">1</text>
+    <text x="100" y="98" fill="#8C7BE8" stroke="#8C7BE8">2</text>
+    <text x="158" y="90" fill="#6FC6A0" stroke="#6FC6A0" transform="rotate(8 158 60)">3</text></g></symbol>
+
+  <!-- кубик с буквой -->
+  <symbol id="c-cube" viewBox="0 0 120 120"><g filter="url(#clay)">
+    <path d="M60 14 104 36 104 84 60 108 16 84 16 36Z" fill="#F2D57A" stroke="#F2D57A" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M60 14 104 36 60 58 16 36Z" fill="#FBE7A6" stroke="#FBE7A6" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M60 58 104 36 104 84 60 108Z" fill="#E6C25E" stroke="#E6C25E" stroke-width="6" stroke-linejoin="round"/>
+    <text x="37" y="92" text-anchor="middle" font-family="Nunito, Onest, sans-serif" font-weight="900" font-size="36" fill="#E07F5B" transform="skewY(26) translate(0 -18)">А</text>
+  </g></symbol>
+
+  <!-- звезда -->
+  <symbol id="c-star" viewBox="0 0 120 120"><g filter="url(#clay)">
+    <path d="M60 14 73 44 105 47 81 68 88 100 60 83 32 100 39 68 15 47 47 44Z" fill="#F6C95C" stroke="#F6C95C" stroke-width="12" stroke-linejoin="round"/>
+  </g></symbol>
+
+  <!-- облако -->
+  <symbol id="c-cloud" viewBox="0 0 140 100"><g filter="url(#clay)" fill="#FFFFFF">
+    <circle cx="48" cy="58" r="26"/><circle cx="78" cy="44" r="32"/><circle cx="106" cy="62" r="22"/><rect x="30" y="56" width="92" height="30" rx="15"/>
+  </g></symbol>
+
+  <!-- речевой пузырь -->
+  <symbol id="c-bubble" viewBox="0 0 130 120"><g filter="url(#clay)">
+    <path d="M24 18h82a16 16 0 0 1 16 16v38a16 16 0 0 1-16 16H62L38 106l4-18H24A16 16 0 0 1 8 72V34a16 16 0 0 1 16-16Z" fill="#9FD8BD" stroke="#9FD8BD" stroke-width="6" stroke-linejoin="round"/>
+  </g>
+  <g filter="url(#clay-flat)" fill="#FFFFFF"><circle cx="42" cy="53" r="8"/><circle cx="65" cy="53" r="8"/><circle cx="88" cy="53" r="8"/></g></symbol>
+
+  <!-- книга -->
+  <symbol id="c-book" viewBox="0 0 140 110"><g filter="url(#clay)">
+    <path d="M12 28c20-8 38-8 56 4v66c-18-11-36-11-56-4Z" fill="#8C7BE8" stroke="#8C7BE8" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M128 28c-20-8-38-8-56 4v66c18-11 36-11 56-4Z" fill="#A89AF0" stroke="#A89AF0" stroke-width="8" stroke-linejoin="round"/>
+  </g>
+  <g filter="url(#clay-flat)" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity=".85">
+    <path d="M24 44c10-3 20-3 32 2M24 58c10-3 20-3 32 2M84 46c12-5 22-5 32-2M84 60c12-5 22-5 32-2"/></g></symbol>
+
+  <!-- карандаш -->
+  <symbol id="c-pencil" viewBox="0 0 140 60"><g filter="url(#clay)">
+    <rect x="30" y="16" width="80" height="28" rx="10" fill="#F4A07E"/>
+    <rect x="104" y="16" width="22" height="28" rx="11" fill="#F29BB0"/>
+    <path d="M32 16 8 30 32 44Z" fill="#F6D9B4" stroke="#F6D9B4" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M14 26 6 30 14 34Z" fill="#3B3154" stroke="#3B3154" stroke-width="4" stroke-linejoin="round"/>
+  </g></symbol>
+
+  <!-- пазл -->
+  <symbol id="c-puzzle" viewBox="0 0 120 120"><g filter="url(#clay)">
+    <path d="M22 30h22a14 14 0 1 1 28 0h22v24a14 14 0 1 1 0 28v18H72a14 14 0 1 0-28 0H22V82a14 14 0 1 0 0-28Z" fill="#7FB3F0" stroke="#7FB3F0" stroke-width="6" stroke-linejoin="round"/>
+  </g></symbol>
+
+  <!-- солнце -->
+  <symbol id="c-sun" viewBox="0 0 120 120"><g filter="url(#clay)">
+    <g fill="#F6C95C"><rect x="54" y="4" width="12" height="22" rx="6"/><rect x="54" y="94" width="12" height="22" rx="6"/><rect x="4" y="54" width="22" height="12" rx="6"/><rect x="94" y="54" width="22" height="12" rx="6"/>
+    <rect x="54" y="4" width="12" height="22" rx="6" transform="rotate(45 60 60)"/><rect x="54" y="94" width="12" height="22" rx="6" transform="rotate(45 60 60)"/><rect x="4" y="54" width="22" height="12" rx="6" transform="rotate(45 60 60)"/><rect x="94" y="54" width="22" height="12" rx="6" transform="rotate(45 60 60)"/></g>
+    <circle cx="60" cy="60" r="28" fill="#F9D56E"/>
+  </g></symbol>
+
+  <!-- радуга -->
+  <symbol id="c-rainbow" viewBox="0 0 160 100"><g filter="url(#clay)" fill="none" stroke-linecap="round">
+    <path d="M18 88a62 62 0 0 1 124 0" stroke="#F4A07E" stroke-width="16"/>
+    <path d="M38 88a42 42 0 0 1 84 0" stroke="#F6C95C" stroke-width="16"/>
+    <path d="M58 88a22 22 0 0 1 44 0" stroke="#6FC6A0" stroke-width="16"/>
+  </g></symbol>
+
+  <!-- яблоко -->
+  <symbol id="c-apple" viewBox="0 0 120 120"><g filter="url(#clay)">
+    <path d="M60 36c14-10 40-6 42 24 2 26-18 48-30 48-6 0-8-3-12-3s-6 3-12 3c-12 0-32-22-30-48 2-30 28-34 42-24Z" fill="#F08A8A"/>
+    <rect x="56" y="14" width="8" height="22" rx="4" fill="#9A6B4F"/>
+    <path d="M66 26c8-12 22-12 26-8-6 10-18 12-26 8Z" fill="#6FC6A0" stroke="#6FC6A0" stroke-width="3" stroke-linejoin="round"/>
+  </g></symbol>
+
+  <!-- мозг -->
+  <symbol id="c-brain" viewBox="0 0 130 110"><g filter="url(#clay)">
+    <path d="M40 16c10-8 24-6 26 2 8-8 24-8 30 2 14 0 22 12 18 24 10 8 8 26-6 30-2 14-18 20-28 14-6 10-24 10-30 0-12 4-26-4-26-16-14-4-16-24-4-32-2-14 10-24 20-24Z" fill="#F29BB0" stroke="#F29BB0" stroke-width="4" stroke-linejoin="round"/>
+  </g>
+  <g filter="url(#clay-flat)" fill="none" stroke="#E07F97" stroke-width="5" stroke-linecap="round"><path d="M66 20v70M44 38c8 2 12 8 12 16M88 36c-8 2-12 8-12 16M40 66c10-2 16 2 20 10M92 64c-10-2-16 2-20 10"/></g></symbol>
+
+  <!-- смайлик -->
+  <symbol id="c-smile" viewBox="0 0 120 120"><g filter="url(#clay)"><circle cx="60" cy="60" r="44" fill="#F9D56E"/></g>
+  <g filter="url(#clay-flat)" fill="#3B3154"><ellipse cx="45" cy="52" rx="6" ry="8"/><ellipse cx="75" cy="52" rx="6" ry="8"/></g>
+  <g filter="url(#clay-flat)"><path d="M40 72c10 14 30 14 40 0" fill="none" stroke="#3B3154" stroke-width="7" stroke-linecap="round"/></g></symbol>
+
+  <!-- шарики -->
+  <symbol id="c-balls" viewBox="0 0 120 80"><g filter="url(#clay)"><circle cx="28" cy="46" r="20" fill="#8C7BE8"/><circle cx="66" cy="34" r="24" fill="#6FC6A0"/><circle cx="100" cy="52" r="16" fill="#F4A07E"/></g></symbol>
+
+  <!-- пластилиновый шнур для дорожки этапов -->
+  <symbol id="c-cord" viewBox="0 0 600 60" preserveAspectRatio="none"><g filter="url(#clay-flat)">
+    <path d="M6 30C60 6 110 54 170 30S280 6 340 30 450 54 510 30 580 12 594 30" fill="none" stroke="#C9BCF5" stroke-width="16" stroke-linecap="round"/>
+  </g></symbol>
+</svg>
