@@ -58,8 +58,8 @@ body = f"""<body>
     <div class="container">
       <div class="hero-slab clay-slab">
         <div class="hero-copy">
-          <span class="eyebrow">Центр речи и развития в Раменском</span>
-          <h1>Помогаем детям говорить свободно и уверенно</h1>
+          <span class="eyebrow">Центр речи «Будущее» · Раменское</span>
+          <h1>Логопед в Раменском: помогаем детям говорить уверенно</h1>
           <p class="lead">Диагностика, индивидуальные занятия и подготовка к школе. Бережно развиваем речь, внимание и уверенность ребёнка.</p>
           <div class="hero-benefits"><span class="hero-benefit">Без давления</span><span class="hero-benefit">Личная программа</span><span class="hero-benefit">Опытные специалисты</span><span class="hero-benefit">Очно и онлайн</span></div>
           <div class="hero-actions"><a class="btn btn-lg" href="#lead">Записаться на диагностику</a><a class="btn outline" href="#services">Посмотреть программы</a></div>
