@@ -166,7 +166,7 @@ body = f"""<body>
           {obj(deco, "sp-deco", *dims)}
           <span class="content"><h3>{name}</h3><span class="specialist-role">{role}</span><span class="specialist-more">Подробнее</span></span>
         </button>''' for i, (slug, img, name, role, w, deco, dims) in enumerate([
-            ("vanyushkina", "vanyushkina.jpg", "Ванюшкина Светлана Ильинична", "Руководитель Центра речи «Будущее», логопед-дефектолог", 1254, "c-star", (120, 120)),
+            ("vanyushkina", "vanyushkina-2026.jpg", "Ванюшкина Светлана Ильинична", "Руководитель Центра речи «Будущее», логопед-дефектолог", 900, "c-star", (120, 120)),
             ("akimova", "akimova.jpg", "Мария Александровна Акимова", "Психолог", 900, "c-smile", (120, 120)),
             ("kondrashov", "kondrashov.jpg", "Кондрашов Борис Алексеевич", "Специалист в области ЛФК и физической культуры и спорта", 900, "c-balls", (120, 80)),
             ("makarenko", "makarenko.jpg", "Марианна Александровна Макаренко", "Администратор Центра речи «Будущее»", 900, "c-bubble", (130, 120)),
