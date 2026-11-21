@@ -88,7 +88,7 @@ body = f"""<body>
 
   <section class="trust-strip" aria-label="Почему родители выбирают центр">
     <div class="container trust-islands">
-      <div class="trust-island t1"><span class="token">1</span><div><strong>Первичная диагностика</strong><span>Бесплатно, 30 минут</span></div></div>
+      <div class="trust-island t1"><span class="token">1</span><div><strong>Первичная диагностика</strong><span>30 - 60 минут</span></div></div>
       <div class="trust-island t2"><span class="token">2</span><div><strong>Индивидуальный план</strong><span>Под возраст и задачи</span></div></div>
       <div class="trust-island t3"><span class="token">3</span><div><strong>Контроль прогресса</strong><span>Понятная динамика навыков</span></div></div>
       <div class="trust-island t4"><span class="token">4</span><div><strong>Помощь родителям</strong><span>Домашние рекомендации</span></div></div>
